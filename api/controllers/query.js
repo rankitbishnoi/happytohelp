@@ -50,7 +50,7 @@ module.exports.getQueryList = (req, res) => {
           cursor = Queries.count({$and:[query]})
      }
 
-     cursor.exec((err, list) => {console.log(cursor);console.log(req.query);console.log(page);
+     cursor.exec((err, list) => {
           if(err) {
                sendJSONresponse(res, 400, {
                     "message": "Something is Wrong. We are working it out. Try again."+ err
@@ -93,8 +93,8 @@ module.exports.createQuery = (req, res) => {
      })
 };
 
-module.exports.changeStatus = (req, res) => {
-     Queries.find({'_id': req.body.queryId}, (err, query) => {
+module.exports.changeStatus = (req, res) => {console.log(req.body);
+     Queries.findOne({'_id': req.body.queryId}, (err, query) => {
           query.status = req.body.status;
 
           query.save((err) => {
@@ -110,7 +110,7 @@ module.exports.changeStatus = (req, res) => {
      });
 };
 
-module.exports.postAnswer = (req, res) => {
+module.exports.postAnswer = (req, res) => {console.log(req.body);
      var obj = {
           msg: req.body.msg,
           sentby: {
@@ -152,10 +152,11 @@ module.exports.deleteAnswer = (req, res) => {
 
 module.exports.deleteQuery = (req, res) => {
      Queries.find({'_id': req.body.queryId}, (err, query) => {
-          if(req.payload.batch === 'Admin'){
+          if(req.body.batch != 'Admin'){
                sendJSONresponse(res, 400, {
                     "message": "Only admin Can delete it."
                });
+               return;
           }
 
           query.remove((err) => {

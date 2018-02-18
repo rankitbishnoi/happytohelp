@@ -23,4 +23,11 @@ myapp.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $
             controller: 'singleQueryCtrl',
             controllerAs: 'singleQuery'
         })
+
+        .state('createQuery', {
+            url: '/createQuery',
+            templateUrl: './angular/views/createQuery.html',
+            controller: 'createQueryCtrl',
+            controllerAs: 'createQuery'
+        })
     }]);

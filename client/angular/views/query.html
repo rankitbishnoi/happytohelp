@@ -45,23 +45,48 @@
           <div class="col-md-3 hidden-xs hidden-sm">
                <div id="queriesStats" class="jumbotron">
                     <h2> Query Stats </h2>
-                    <div class="panel panel-default" id="stats1">
-                         <div class="panel-heading">
-                              <h3 class="panel-title">Raised By Me :</h3>
+                    <button class="btn btn-primary marginbtn" ng-show='query.user' ui-sref='createQuery'>+ New Query </button>
+                    <div class="adminOnly" ng-show='query.admin'>
+                         <div class="panel panel-default" id="stats1">
+                              <div class="panel-heading">
+                                   <h3 class="panel-title">Raised:</h3>
+                              </div>
+                              <div class="panel-body">
+                                   <div class="well">
+                                        <h1 class="text-center"> {{query.totalQuery}} </h1>
+                                   </div>
+                              </div>
                          </div>
-                         <div class="panel-body">
-                              <div class="well">
-                                   <h1 class="text-center"> {{query.totalQueryRaised}} </h1>
+                         <div class="panel panel-default" id="stats2">
+                              <div class="panel-heading">
+                                   <h3 class="panel-title">Resolved</h3>
+                              </div>
+                              <div class="panel-body">
+                                   <div class="well">
+                                        <h1 class="text-center"> {{query.resolved}} </h1>
+                                   </div>
                               </div>
                          </div>
                     </div>
-                    <div class="panel panel-default" id="stats2">
-                         <div class="panel-heading">
-                              <h3 class="panel-title">Resolved</h3>
+                    <div class="userOnly" ng-show='query.user'>
+                         <div class="panel panel-default" id="stats1">
+                              <div class="panel-heading">
+                                   <h3 class="panel-title">Raised By Me :</h3>
+                              </div>
+                              <div class="panel-body">
+                                   <div class="well">
+                                        <h1 class="text-center"> {{query.totalQueryRaised}} </h1>
+                                   </div>
+                              </div>
                          </div>
-                         <div class="panel-body">
-                              <div class="well">
-                                   <h1 class="text-center"> {{query.resolvedQuery}} </h1>
+                         <div class="panel panel-default" id="stats2">
+                              <div class="panel-heading">
+                                   <h3 class="panel-title">Resolved</h3>
+                              </div>
+                              <div class="panel-body">
+                                   <div class="well">
+                                        <h1 class="text-center"> {{query.resolvedQuery}} </h1>
+                                   </div>
                               </div>
                          </div>
                     </div>

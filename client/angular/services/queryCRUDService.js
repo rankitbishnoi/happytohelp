@@ -6,7 +6,7 @@ myapp.service('queryCRUD', ['$rootScope','$http', function($rootScope, $http){
           $http.post('http://localhost:3000/api/postAnswer', data,  { headers: {'Authorization': 'Bearer '+ token}}).then(function successCallback(response){
                $rootScope.$broadcast('successfull posted answer');
           },function errorCallback(response){
-               $rootScope.$broadcast('unsuccessful', "postAnswer");
+               $rootScope.$broadcast('unsuccessful');
           });
      }
 
@@ -15,7 +15,16 @@ myapp.service('queryCRUD', ['$rootScope','$http', function($rootScope, $http){
           $http.post('http://localhost:3000/api/deleteAnswer', data,  { headers: {'Authorization': 'Bearer '+ token}}).then(function successCallback(response){
                $rootScope.$broadcast('successfull deleted answer');
           },function errorCallback(response){
-               $rootScope.$broadcast('unsuccessful', "deleteAnswer");
+               $rootScope.$broadcast('unsuccessful');
+          });
+     }
+
+     self.deleteQuery = (token, queryId, batch) => {
+          var data = { queryId: queryId, batch: batch};
+          $http.post('http://localhost:3000/api/deleteQuery', data,  { headers: {'Authorization': 'Bearer '+ token}}).then(function successCallback(response){
+               $rootScope.$broadcast('successfull deleted Query');
+          },function errorCallback(response){
+               $rootScope.$broadcast('unsuccessful');
           });
      }
 
@@ -24,7 +33,7 @@ myapp.service('queryCRUD', ['$rootScope','$http', function($rootScope, $http){
           $http.post('http://localhost:3000/api/changeStatus', data,  { headers: {'Authorization': 'Bearer '+ token}}).then(function successCallback(response){
                $rootScope.$broadcast('successfull changed status', status);
           },function errorCallback(response){
-               $rootScope.$broadcast('unsuccessful', "changeStatus");
+               $rootScope.$broadcast('unsuccessful');
           });
      }
 }]);

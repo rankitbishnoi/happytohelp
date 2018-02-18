@@ -97,3 +97,15 @@ hr {
      width: 100%;
      height: auto;
 }
+
+#singleQuery {
+     padding: 1em;
+}
+
+#answerPanel {
+     padding-left: 3em;
+}
+
+.marginbtn {
+     margin: 1em;
+}

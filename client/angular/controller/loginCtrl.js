@@ -121,6 +121,11 @@ myapp.controller('loginCtrl',['$uibModal','$log','$document','$http','$localStor
                          $scope.passworderror = undefined;
                          $scope.confirmpassworderror = undefined;
                          $scope.mobileNumbererror = undefined;
+                         if ($scope.batch === 1234) {
+                              $scope.batch = 'Admin';
+                         }else{
+                              $scope.batch = undefined;
+                         }
                          if ($scope.email === ' ' || $scope.password === ' ' || $scope.name === ' ' || $scope.username === ' ' || $scope.mobileNumber === ' '){
                               $scope.rerror = 'Please enter valid Email id and password.';
                          }else if ($scope.email === 'email' || $scope.password === 'password' || $scope.name === 'name' || $scope.username === 'username' || $scope.mobileNumber === 'mobileNumber'){
@@ -149,7 +154,8 @@ myapp.controller('loginCtrl',['$uibModal','$log','$document','$http','$localStor
                                    password: $scope.password,
                                    name: $scope.name,
                                    username: $scope.username,
-                                   mobileNumber: $scope.mobileNumber
+                                   mobileNumber: $scope.mobileNumber,
+                                   batch: $scope.batch,
                               };
                               $http.post('http://localhost:3000/api/register', data).then(function successCallback(response){
                                    // what to do when success

@@ -21,6 +21,14 @@ myapp.controller('queryCtrl', ['$localStorage','$state','fetchQuery','$interval'
           $state.go('home');
      }
 
+     if (self.info.batch === 'Admin') {
+          self.admin = true;
+          self.user = false;
+     }else {
+          self.admin = false;
+          self.user = true;
+     }
+
      self.filter = {
           raisedBy : {  myself : '',   allusers : 'active'},
           status : { open : 'active',  closed : ''}
@@ -52,6 +60,8 @@ myapp.controller('queryCtrl', ['$localStorage','$state','fetchQuery','$interval'
 
           self.totalQueryRaised = fetchQuery.totalQueryRaised;
           self.resolvedQuery = fetchQuery.resolvedQuery;
+          self.totalQuery = fetchQuery.totalQuery;
+          self.resolved = fetchQuery.resolved;
           self.checkPagination();
           self.list = fetchQuery.list;
      }, 500);
@@ -78,6 +88,8 @@ myapp.controller('queryCtrl', ['$localStorage','$state','fetchQuery','$interval'
      self.retriveQueryList(1);
      fetchQuery.myselfTotalQueriesCount($localStorage.token, self.info.email);
      fetchQuery.myselfResolvedQueryCount($localStorage.token, self.info.email);
+     fetchQuery.TotalQueriesCount($localStorage.token);
+     fetchQuery.queryresolvedCount($localStorage.token);
 
      self.presentPage = 1;
      self.checkPagination = () => {
