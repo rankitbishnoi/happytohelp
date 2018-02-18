@@ -1,0 +1,99 @@
+#nav {
+  padding: 0 1em;
+}
+
+#navimage {
+  width: auto;
+  height: 100%;
+}
+
+#nabar-brand {
+  font-size: 2em;
+  font-family: 'Sofia';
+
+}
+
+body {
+  background: url('./images/background.jpg');
+  height: 100vh;
+  width: 95vw;
+}
+
+hr {
+     margin-top: 0em;
+     margin-bottom: 2px;
+}
+
+#view {
+  min-height: 80vh;
+}
+
+#home {
+  font-family: 'Sofia';
+}
+
+#homeRow {
+  min-height: 50vh;
+}
+
+#qoute-block {
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+#letsStartdiv {
+  width: 23em;
+}
+
+#letsStart {
+  border-style: groove;
+  border-radius: 2em;
+  border-color: grey;
+}
+
+#error {
+     color: Red;
+}
+
+#modal-header {
+     padding: 2em;
+}
+
+#modal-body {
+     padding: 2em;
+}
+
+#queriesRased {
+     background-color: white;
+     margin: 1em;
+     padding: .5em;
+}
+
+#queriesStats {
+     background-color: white;
+     margin: 1em;
+     padding: .5em;
+}
+
+#panel-title {
+     font-size: 1.5em;
+}
+
+#panel-body {
+     padding: .5em;
+}
+
+#panel-bodyP {
+     margin: 0;
+     font-size: 1em;
+}
+
+#stats1 {
+     width: 100%;
+     height: auto;
+}
+
+#stats2 {
+     width: 100%;
+     height: auto;
+}

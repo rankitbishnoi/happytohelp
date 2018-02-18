@@ -1,0 +1,71 @@
+<section id='queryPage' class="container-fluid" ng-controller = 'queryCtrl as query'>
+     <div class="row">
+          <div class="col-xs-12 col-md-9">
+               <div class="jumbotron" id="queriesRased">
+                    <h2> Queries </h2><hr>
+                    <div class="row">
+                         <div class="col-xs-6">
+                              <p> Raised By <span>
+                                   <div class="btn-group" role="group" aria-label="Raised By">
+                                        <button type="button" class="btn btn-default" ng-class = 'query.filter.raisedBy.myself' ng-click='query.filterState("myself")'>Myself</button>
+                                        <button type="button" class="btn btn-default" ng-class = 'query.filter.raisedBy.allusers' ng-click='query.filterState("allusers")'>All Users</button>
+                                   </div>
+                              </span></p>
+                         </div>
+                         <div class="col-xs-6">
+                              <p> Status <span>
+                                   <div class="btn-group" role="group" aria-label="Raised By">
+                                        <button type="button" class="btn btn-default" ng-class = 'query.filter.status.open' ng-click='query.filterState("open")'>Open</button>
+                                        <button type="button" class="btn btn-default" ng-class = 'query.filter.status.closed' ng-click='query.filterState("closed")'>Closed</button>
+                                   </div>
+                              </span></p>
+                         </div>
+                    </div><hr>
+                    <div id="queryList">
+                         <div ng-repeat ='ticket in query.list'>
+                              <div class="panel panel-info">
+                                   <div class="panel-heading">
+                                        <h3 class="panel-title" ng-click='query.changeState(ticket)' id="panel-title">{{ticket.subject}}</h3>
+                                   </div>
+                                   <div class="panel-body" ng-init='query.countAnswers(ticket.user.name, ticket.conversation)' id="panel-body">
+                                        <p id="panel-bodyP"> Raised By: {{ticket.user.name}}, &nbsp;&nbsp; At: {{ticket.createdOn | date:'yyyy-MM-dd HH:mm:ss Z'}} &nbsp;&nbsp; Answers: {{query.answers}} </p>
+                                   </div>
+                              </div>
+                              <hr>
+                         </div>
+                    </div>
+                    <nav aria-label="Pages">
+                         <ul class="pager">
+                              <li class="previous"><a ng-click='query.newerQueryPage()' ng-show = 'query.newer'><span aria-hidden="true">&larr;</span> Newer</a></li>
+                              <li class="next"><a ng-click='query.olderQueryPage()' ng-show = 'query.older'>Older <span aria-hidden="true">&rarr;</span></a></li>
+                         </ul>
+                    </nav>
+               </div>
+          </div>
+          <div class="col-md-3 hidden-xs hidden-sm">
+               <div id="queriesStats" class="jumbotron">
+                    <h2> Query Stats </h2>
+                    <div class="panel panel-default" id="stats1">
+                         <div class="panel-heading">
+                              <h3 class="panel-title">Raised By Me :</h3>
+                         </div>
+                         <div class="panel-body">
+                              <div class="well">
+                                   <h1 class="text-center"> {{query.totalQueryRaised}} </h1>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="panel panel-default" id="stats2">
+                         <div class="panel-heading">
+                              <h3 class="panel-title">Resolved</h3>
+                         </div>
+                         <div class="panel-body">
+                              <div class="well">
+                                   <h1 class="text-center"> {{query.resolvedQuery}} </h1>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</section>
