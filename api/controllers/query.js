@@ -64,7 +64,7 @@ module.exports.getQueryList = (req, res) => {
 
 module.exports.createQuery = (req, res) => {
      console.log(req.body);
-     if(req.body.subject === undefined || req.body.content === undefined  || req.body.status === undefined  || req.body.email === undefined ) {
+     if(req.body.subject === undefined || req.body.description === undefined || req.body.name === undefined || req.body.email === undefined ) {console.log('hi');
           sendJSONresponse(res, 400, {
                "message": "All fields required"
           });
@@ -73,14 +73,15 @@ module.exports.createQuery = (req, res) => {
 
      var query = new Queries({
           subject : req.body.subject,
-          status : req.body.status,
-          content : req.body.content,
+          status : true,
+          content : req.body.description,
           user : { name : req.body.name, email : req.body.email },
-          createdOn : Date.now()
+          createdOn : Date.now(),
+          conversation : []
      });
 
 
-
+     console.log(query);
      query.save((err) => {
           if(err) {
                sendJSONresponse(res, 400, {
@@ -93,7 +94,7 @@ module.exports.createQuery = (req, res) => {
      })
 };
 
-module.exports.changeStatus = (req, res) => {console.log(req.body);
+module.exports.changeStatus = (req, res) => {
      Queries.findOne({'_id': req.body.queryId}, (err, query) => {
           query.status = req.body.status;
 
@@ -110,7 +111,7 @@ module.exports.changeStatus = (req, res) => {console.log(req.body);
      });
 };
 
-module.exports.postAnswer = (req, res) => {console.log(req.body);
+module.exports.postAnswer = (req, res) => {
      var obj = {
           msg: req.body.msg,
           sentby: {

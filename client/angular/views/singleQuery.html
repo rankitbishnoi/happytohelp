@@ -30,7 +30,7 @@
                <div class="panel-footer">
                     <p> Raised By: {{answer.sentby.name}} <span ng-if='answer.sentby.designation'>({{answer.sentby.designation}})</span>, &nbsp;&nbsp; At: {{answer.sentOn | date:'yyyy-MM-dd HH:mm:ss Z'}}
                          <span>
-                              <button type="button" class="btn btn-default" aria-label="Left Align" ng-click='singleQuery.deleteAnswer($index)' ng-show='singleQuery.admin()'>
+                              <button type="button" class="btn btn-default" aria-label="Left Align" ng-click='singleQuery.deleteAnswer($index)' ng-show='singleQuery.admin'>
                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                               </button>
                          </span>

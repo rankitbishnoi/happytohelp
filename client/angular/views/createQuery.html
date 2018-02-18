@@ -1,0 +1,16 @@
+<section ng-controller='createQueryCtrl as createQuery'>
+     <div id="createQuery">
+          <h2> Add a new Query </h2>
+          <div>
+               <p class="form-group paddingForm">
+                    <label>Subject:</label>
+                    <input type="text" ng-model="createQuery.subject" class="form-control" autocomplete="on">
+               </p>
+               <p class="form-group paddingForm">
+                    <label>Description:</label>
+                    <textarea class="form-control" rows="3" ng-model="createQuery.description"></textarea>
+               </p>
+          </div>
+          <button class="btn btn-primary marginbtn" type="button" ng-click="createQuery.post()">Post</button>
+     </div>
+</section>

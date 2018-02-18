@@ -1,4 +1,4 @@
-myapp.controller('singleQueryCtrl', ['$uibModal','$log','$document','fetchTicket','queryCRUD','$localStorage','$rootScope', function($uibModal, $log, $document, fetchTicket,queryCRUD,$localStorage,$rootScope) {
+myapp.controller('singleQueryCtrl', ['$uibModal','$log','$document','fetchTicket','queryCRUD','$localStorage','$rootScope','$state', function($uibModal, $log, $document, fetchTicket,queryCRUD,$localStorage,$rootScope,$state) {
      var self = this;
 
      self.parseJwt = (token) => {

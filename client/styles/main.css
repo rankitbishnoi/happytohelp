@@ -109,3 +109,11 @@ hr {
 .marginbtn {
      margin: 1em;
 }
+
+#createQuery {
+     margin: 1em;
+}
+
+.paddingForm {
+     padding: 1em;
+}
