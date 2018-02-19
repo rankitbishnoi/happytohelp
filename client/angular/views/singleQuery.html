@@ -27,7 +27,7 @@
                     </h3>
                </div>
                <div class="panel-body">
-                    <p>{{singleQuery.ticket.content}} </p>
+                    <pre>{{singleQuery.ticket.content}} </pre>
                </div>
                <div class="panel-footer">
                     <p> Raised By: {{singleQuery.ticket.user.name}}, &nbsp;&nbsp; At: {{singleQuery.ticket.createdOn | date:'yyyy-MM-dd HH:mm:ss Z'}}
@@ -43,7 +43,7 @@
      <div id="answerPanel">
           <div class="panel panel-default" ng-repeat='answer in singleQuery.ticket.conversation'>
                <div class="panel-body">
-                    <h3 class="panel-title">{{answer.msg}}</h3>
+                    <pre class="panel-title">{{answer.msg}}</pre>
                </div>
                <div class="panel-footer">
                     <p> Raised By: {{answer.sentby.name}} <span ng-if='answer.sentby.designation'>({{answer.sentby.designation}})</span>, &nbsp;&nbsp; At: {{answer.sentOn | date:'yyyy-MM-dd HH:mm:ss Z'}}
@@ -57,7 +57,7 @@
           </div>
      </div>
      <div id="inputAnswer">
-          <h2> Answer this query </h2>
+          <h2 class="white"> Answer this query </h2>
           <textarea class="form-control" rows="3" ng-model='singleQuery.msg'></textarea>
           <button type="button" class="btn btn-primary marginbtn" ng-click='singleQuery.postAnswer()'>Post The Answer</button>
      </div>
