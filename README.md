@@ -2,10 +2,10 @@
 It is an Ticket Based web-app for user to raise their queries and they will be answered by the Administrators.
 
 ## This web-app is based on MEANjs Platform and MVC architecture:
-(i) The back-end is based on Nodejs, Express, mongoose.
-(ii) The front-end is based on angularjs and bootstrap is used as css framework.
-(iii) Mongodb is used for database in this app.
-(iv) The authentication is done using the JWT, for which I have used jsonwebtoken npm to generate the JWT and express-jwt to verify.
+* The back-end is based on Nodejs, Express, mongoose.
+* The front-end is based on angularjs and bootstrap is used as css framework.
+* Mongodb is used for database in this app.
+* The authentication is done using the JWT, for which I have used jsonwebtoken npm to generate the JWT and express-jwt to verify.
 
 **To start the app:**
 
