@@ -22,7 +22,12 @@ module.exports.register = function(req, res) {
   user.email = req.body.email;
   user.username = req.body.username;
   user.mobileNumber = req.body.mobileNumber;
-  user.batch = req.body.batch;
+
+  if (req.body.batch === 1234) {
+       user.batch = 'Admin';
+  }else{
+       user.batch = undefined;
+  };
 
   user.setPassword(req.body.password);
 

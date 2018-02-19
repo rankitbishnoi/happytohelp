@@ -57,12 +57,17 @@ myapp.controller('singleQueryCtrl', ['$uibModal','$log','$document','fetchTicket
      });
 
      self.deleteAnswer = (index) => {
+          self.count = true;
+          self.index = index;
           self.warningFunction = "deleteAnswer";
           self.warning();
      }
 
-     $rootScope.$on('successfull deleted answer', () => {
-          self.ticket.conversation.splice(index, 1);
+     $rootScope.$on('successfull deleted answer', (evt, index) => {
+          if (self.count === true) {
+               self.ticket.conversation.splice(index, 1);
+               self.count = false;
+          }
      });
 
      self.deleteQuery = () => {
@@ -109,9 +114,9 @@ myapp.controller('singleQueryCtrl', ['$uibModal','$log','$document','fetchTicket
 
      self.alert = function (size, parentSelector) {             // function to open the modal
           $uibModal.open({
-               animation: $ctrl.animationsEnabled,
+               animation: self.animationsEnabled,
                ariaLabelledBy: 'modal-title',
-               template: '<div class="alert alert-danger" role="alert" id="modal-title"><p> Could Not Complete The operation. Please Try again, After sometime.</p><button ngclick = "ok()" class = "btn-default">Ok</button></div>',
+               templateUrl: 'alert.html',
                size: 'sm',
                controller: function($scope,$uibModalInstance) {      // modal controller
 
@@ -128,19 +133,22 @@ myapp.controller('singleQueryCtrl', ['$uibModal','$log','$document','fetchTicket
 
      self.warning = function (size, parentSelector) {             // function to open the modal
           $uibModal.open({
-               animation: $ctrl.animationsEnabled,
+               animation: self.animationsEnabled,
                ariaLabelledBy: 'modal-title',
-               template: '<div id="modal-title"><p>Do you want to procced with this action?</p><button ngclick = "yes()" class = "btn-default">Yes</button><button ngclick = "ok()" class = "btn-warning">Cancel</button></div>',
+               templateUrl: 'warning.html',
                size: 'sm',
                controller: function($scope,$uibModalInstance) {      // modal controller
 
+
                     $scope.yes = () => {
                          if (self.warningFunction === "deleteAnswer") {
-                              queryCRUD.deleteAnswer($localStorage.token, self.ticket._id, index);
+                              queryCRUD.deleteAnswer($localStorage.token, self.ticket._id, self.index);
                          }else if (self.warningFunction === "deleteQuery") {
                               queryCRUD.deleteQuery($localStorage.token, self.ticket._id, self.info.batch);
                          }
+                         $uibModalInstance.close();
                     }
+
 
 
                     $scope.ok = () => {                                      // function to close the modal

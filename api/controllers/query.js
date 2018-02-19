@@ -63,8 +63,7 @@ module.exports.getQueryList = (req, res) => {
 };
 
 module.exports.createQuery = (req, res) => {
-     console.log(req.body);
-     if(req.body.subject === undefined || req.body.description === undefined || req.body.name === undefined || req.body.email === undefined ) {console.log('hi');
+     if(req.body.subject === undefined || req.body.description === undefined || req.body.name === undefined || req.body.email === undefined ) {
           sendJSONresponse(res, 400, {
                "message": "All fields required"
           });
@@ -81,7 +80,6 @@ module.exports.createQuery = (req, res) => {
      });
 
 
-     console.log(query);
      query.save((err) => {
           if(err) {
                sendJSONresponse(res, 400, {
@@ -134,7 +132,7 @@ module.exports.postAnswer = (req, res) => {
 };
 
 module.exports.deleteAnswer = (req, res) => {
-     Queries.find({'_id': req.body.queryId}, (err, query) => {
+     Queries.findOne({'_id': req.body.queryId}, (err, query) => {
 
           query.conversation.splice(req.body.convoNumber,1);
 
@@ -152,7 +150,7 @@ module.exports.deleteAnswer = (req, res) => {
 };
 
 module.exports.deleteQuery = (req, res) => {
-     Queries.find({'_id': req.body.queryId}, (err, query) => {
+     Queries.findOne({'_id': req.body.queryId}, (err, query) => {
           if(req.body.batch != 'Admin'){
                sendJSONresponse(res, 400, {
                     "message": "Only admin Can delete it."

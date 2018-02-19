@@ -121,11 +121,6 @@ myapp.controller('loginCtrl',['$uibModal','$log','$document','$http','$localStor
                          $scope.passworderror = undefined;
                          $scope.confirmpassworderror = undefined;
                          $scope.mobileNumbererror = undefined;
-                         if ($scope.batch === 1234) {
-                              $scope.batch = 'Admin';
-                         }else{
-                              $scope.batch = undefined;
-                         }
                          if ($scope.email === ' ' || $scope.password === ' ' || $scope.name === ' ' || $scope.username === ' ' || $scope.mobileNumber === ' '){
                               $scope.rerror = 'Please enter valid Email id and password.';
                          }else if ($scope.email === 'email' || $scope.password === 'password' || $scope.name === 'name' || $scope.username === 'username' || $scope.mobileNumber === 'mobileNumber'){

@@ -36,7 +36,7 @@ myapp.controller('createQueryCtrl', ['$uibModal','$log','$document','createQ','$
 
      self.alert = function (size, parentSelector) {             // function to open the modal
           $uibModal.open({
-               animation: $ctrl.animationsEnabled,
+               animation: self.animationsEnabled,
                ariaLabelledBy: 'modal-title',
                template: '<div class="alert alert-danger" role="alert" id="modal-title"><p> Could Not Complete The operation. Please Try again, After sometime.</p><button ngclick = "ok()" class = "btn-default">Ok</button></div>',
                size: 'sm',

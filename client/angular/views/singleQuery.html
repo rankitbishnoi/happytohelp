@@ -1,4 +1,19 @@
-<section id="singleQuery" ng-controller='singleQueryCtrl as singleQuery'>
+<section id="singleQuery" ng-controller='singleQueryCtrl as singleQuery' class="modal-d">
+     <script type="text/ng-template" id="alert.html">
+          <div class="alert alert-danger marginbtn" role="alert" id="modal-title">
+               <p> Could Not Complete The operation. Please Try again, After sometime.</p>
+               <button ng-click ="ok()" class = "btn-default">Ok</button>
+          </div>
+     </script>
+
+     <script type="text/ng-template" id="warning.html">
+          <div id="modal-title" class="marginbtn">
+               <p>Do you want to procced with this action?</p>
+               <button ng-click ="yes()" class = "btn-default">Yes</button>
+               <button ng-click ="ok()" class = "btn-warning">Cancel</button>
+          </div>
+     </script>
+
      <div>
           <div class="panel panel-info">
                <div class="panel-heading">
@@ -35,9 +50,9 @@
                               </button>
                          </span>
                     </p>
-                    </div>
                </div>
           </div>
+     </div>
      <div id="inputAnswer">
           <h2> Answer this query </h2>
           <textarea class="form-control" rows="3" ng-model='singleQuery.msg'></textarea>

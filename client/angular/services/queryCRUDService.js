@@ -13,7 +13,7 @@ myapp.service('queryCRUD', ['$rootScope','$http', function($rootScope, $http){
      self.deleteAnswer = (token, queryId, index) => {
           var data = { queryId: queryId, convoNumber: index};
           $http.post('http://localhost:3000/api/deleteAnswer', data,  { headers: {'Authorization': 'Bearer '+ token}}).then(function successCallback(response){
-               $rootScope.$broadcast('successfull deleted answer');
+               $rootScope.$broadcast('successfull deleted answer', index);
           },function errorCallback(response){
                $rootScope.$broadcast('unsuccessful');
           });

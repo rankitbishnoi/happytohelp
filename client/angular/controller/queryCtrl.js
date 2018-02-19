@@ -28,7 +28,7 @@ myapp.controller('queryCtrl', ['$localStorage','$state','fetchQuery','$interval'
           self.admin = false;
           self.user = true;
      }
-
+     
      self.filter = {
           raisedBy : {  myself : '',   allusers : 'active'},
           status : { open : 'active',  closed : ''}
