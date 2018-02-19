@@ -32,30 +32,30 @@ It is an Ticket Based web-app for user to raise their queries and they will be a
 ## Basic Feature:
 
 1. User and can view all the queries with filter like
-   - Queries raised by himself- that are still not resolved.
-   - Queries raised by himself- that has been resolved.
-   - Queries raised by all the users - that are still not resolved.
-   - Queries raised by all users - that has been resolved.
+   * Queries raised by himself- that are still not resolved.
+   * Queries raised by himself- that has been resolved.
+   * Queries raised by all the users - that are still not resolved.
+   * Queries raised by all users - that has been resolved.
 
 2. User will get a total number of Queries raised by him on the screen and also the number that has been resolved until now.
 3. User can not delete the queries or the answer on those queries.
 4. User Can change the status of the queries, Once he thinks that the query has rightly been answered and he is satisfied.
 5. Admin Panel have only two filters as he can not put up queries:
-   - Queries that are still pending.
-   - Queries that has been resolved.
+   * Queries that are still pending.
+   * Queries that has been resolved.
 
 6. Admin panel will show the Total Number of queries that has been asked and the Number of queries that has been resolved.
 7. While registering there is a batch input column which should only be used by the admin.
-   - In that column admin will put the code provided by the company to register.
-   - That code differentiate the user and the admin.
-   - Currently the code is '1234', but you can change it in the (./api/controller/auth.js)
+   * In that column admin will put the code provided by the company to register.
+   * That code differentiate the user and the admin.
+   * Currently the code is '1234', but you can change it in the (./api/controller/auth.js)
 
 8. The queries panel holds only 10 queries at a time which are sorted on the basis that latest one comes first. If you want to look older one click on the button older.
 9. For providing the Notification to the user and admin TWILIO and NODEMAILER is used. SO that they not only get the email notification but also the sms notifications. More details about them is provide down.
 10. For login and register Ui-bootstrap modal are used at the front-end and passport configuration file is used at the back-end.
 11. For encrypting the password crypto(which is nodejs native function) is used.
 12. For authentication on every request JWT is used which will be provided to client-side on time of registering or login.
-    - There is also a expiry time for those tokens which you can change.
+    * There is also a expiry time for those tokens which you can change.
 
 
 **In this app I have commented out the functionality of notifying the user and admin when they create an query or answer any query.**
@@ -63,8 +63,8 @@ I have used:
 1. Twilio for the sms notifications of account activities.
 2. Nodemailer for the email notifications of the account activities.
 
-- To use twilio, change the accountSid and authToken in file (./api/controller/twiliosms.js). you have to create an account in the twilio website to get those details.
-- To use the Nodemailer, change the email account and passkey to you own in file (./api/controller/Nodemailer.js).
+* To use twilio, change the accountSid and authToken in file (./api/controller/twiliosms.js). you have to create an account in the twilio website to get those details.
+* To use the Nodemailer, change the email account and passkey to you own in file (./api/controller/Nodemailer.js).
 
 ## Developer :
 Name: **Rankit Bishnoi**
