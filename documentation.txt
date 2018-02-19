@@ -53,7 +53,7 @@ Basic Feature:
 (xi)  For authentication on every request JWT is used which will be provided to client-side on time of registering or login.
           There is also a expiry time for those tokens which you can change.
 
-In this app I have commented out the functionality of notifying the user and admin when they create an query or answer any query.
+In this app I have commented out the functionality of notifying the user and admin when they create an query , answer any query or change the status.
 I have used:
 (i)  Twilio for the sms notifications of account activities.
 (ii) Nodemailer for the email notifications of the account activities.

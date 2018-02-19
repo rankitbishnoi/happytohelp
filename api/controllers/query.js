@@ -106,6 +106,11 @@ module.exports.changeStatus = (req, res) => {
                };
                res.status(200);
                res.json("Request Successfull.");
+               //var msg = 'the status of query has been changed please check';
+               //twilioSms.notify('Admin', msg);
+               //mailer.mail('Admin', msg);
+               //twilioSms.notify(query.user.email, msg);
+               //mailer.mail(query.user.email, msg);
           })
      });
 };
@@ -133,9 +138,8 @@ module.exports.postAnswer = (req, res) => {
           /*Queries.findOne({'_id': req.body.queryId}, (err, obj) => {
                var msg = 'Your query has been Answered. Please check.'
                twilioSms.notify(obj.user.email, msg);
+               mailer.mail(obj.user.email, msg);
           });*/
-
-          //mailer.mail(obj.user.email, msg);
      })
 };
 
