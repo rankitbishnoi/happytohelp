@@ -1,13 +1,13 @@
-#HappytoHelp:
+# HappytoHelp:
 It is an Ticket Based web-app for user to raise their queries and they will be answered by the Administrators.
 
-##This web-app is based on MEANjs Platform and MVC architecture:
+## This web-app is based on MEANjs Platform and MVC architecture:
 (i) The back-end is based on Nodejs, Express, mongoose.
 (ii) The front-end is based on angularjs and bootstrap is used as css framework.
 (iii) Mongodb is used for database in this app.
 (iv) The authentication is done using the JWT, for which I have used jsonwebtoken npm to generate the JWT and express-jwt to verify.
 
-######To start the app:
+**To start the app:**
 
      Install the nodejs, Npm and Mongodb.
 
@@ -19,17 +19,17 @@ It is an Ticket Based web-app for user to raise their queries and they will be a
           node start server.js
 ```
 
-######This web app is made with back-end and front-end combined together.
+**This web app is made with back-end and front-end combined together.**
 1. When you run the app. It will listen the request on port 3000.
 2. Visit http://localhost:3000/happytohelp to start the app on front-end.
 3. if you place the whole app on any server and use the software like nginx or any else. Please change the $http request links accordingly.
 
-######If you want to make the back-end and front-end separate. Then,
+**If you want to make the back-end and front-end separate. Then,**
 1. Delete the code in line from 36 to 41 in app.js file in the root directory.
 2. Host the client folder in the server you want and use any driver like nginx to direct the traffic to index.html in the client folder.
 3. Place the other back-end in the server directory you want and run the app as well as change all the $http request links in front-end accordingly.
 
-##Basic Feature:
+## Basic Feature:
 
 1. User and can view all the queries with filter like
    - Queries raised by himself- that are still not resolved.
@@ -58,7 +58,7 @@ It is an Ticket Based web-app for user to raise their queries and they will be a
     - There is also a expiry time for those tokens which you can change.
 
 
-######In this app I have commented out the functionality of notifying the user and admin when they create an query or answer any query.
+**In this app I have commented out the functionality of notifying the user and admin when they create an query or answer any query.**
 I have used:
 1. Twilio for the sms notifications of account activities.
 2. Nodemailer for the email notifications of the account activities.
@@ -66,7 +66,7 @@ I have used:
 - To use twilio, change the accountSid and authToken in file (./api/controller/twiliosms.js). you have to create an account in the twilio website to get those details.
 - To use the Nodemailer, change the email account and passkey to you own in file (./api/controller/Nodemailer.js).
 
-##Developer :
+## Developer :
 Name: **Rankit Bishnoi**
 E-mail: rankitgodara1@gmail.com
 Mobile Number: +919416061874
