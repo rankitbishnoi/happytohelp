@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Queries = mongoose.model('Query');
 
 //var twilioSms = require('./twilioSms.js')
+//var mailer = require('./nodeMailer.js')
 
 var sendJSONresponse = function(res, status, content) {
      res.status(status);
@@ -88,6 +89,7 @@ module.exports.createQuery = (req, res) => {
 
           var msg = 'New Query Has been uploaded by '+ query.user.name;
           //twilioSms.notify('Admin', msg);
+          //mailer.mail('Admin', msg);
      })
 };
 
@@ -132,6 +134,8 @@ module.exports.postAnswer = (req, res) => {
                var msg = 'Your query has been Answered. Please check.'
                twilioSms.notify(obj.user.email, msg);
           });*/
+
+          //mailer.mail(obj.user.email, msg);
      })
 };
 
