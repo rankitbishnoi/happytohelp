@@ -69,6 +69,6 @@ I have used:
 * To use the Nodemailer, change the email account and passkey to you own in file (./api/controller/Nodemailer.js).
 
 ## Developer :
-Name: **Rankit Bishnoi**
-E-mail: rankitgodara1@gmail.com
-Mobile Number: +919416061874
+Name: **Rankit Bishnoi**   
+E-mail: rankitgodara1@gmail.com   
+Mobile Number: +919416061874   
