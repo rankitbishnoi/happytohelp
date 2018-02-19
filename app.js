@@ -33,7 +33,7 @@ app.use(passport.initialize());
 // Use the API routes when path starts with /api
 app.use('/api', routesApi);
 
-app.get('/happytohelp', (req, res) => {console.log('hi');
+app.get('/happytohelp', (req, res) => {
     res.sendFile(__dirname + '/client/index.html');
 });
 
