@@ -1,4 +1,4 @@
-myapp.controller('loginCtrl',['$uibModal','$log','$document','$http','$localStorage','$state', function ($uibModal, $log, $document, $http, $localStorage, $state) {
+myapp.controller('loginCtrl',['$uibModal','$log','$document','$http','$localStorage','$state','$transitions', function ($uibModal, $log, $document, $http, $localStorage, $state, $transitions) {
      var $ctrl = this;
 
      $ctrl.logoutbtn = false;
@@ -177,5 +177,18 @@ myapp.controller('loginCtrl',['$uibModal','$log','$document','$http','$localStor
                if (['cancel', 'backdrop click', 'escape key press'].indexOf(resp) === -1) throw resp;
           });
      };
+
+     $ctrl.stateBck = 'homebck';
+
+     $transitions.onSuccess({}, ($transitions)=> {
+          var current = $transitions.$to();console.log(current.name);
+          if (current.name === 'home') {
+               $ctrl.stateBck = 'homebck';
+               $ctrl.brandColor = 'black';
+          }else {
+               $ctrl.stateBck = 'querybck';
+               $ctrl.brandColor = 'white';
+          }
+     })
 
 }]);

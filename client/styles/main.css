@@ -7,16 +7,33 @@
   height: 100%;
 }
 
-#nabar-brand {
+.navbar-brand {
   font-size: 2em;
   font-family: 'Sofia';
 
 }
 
-body {
+.black {
+     color: #363636;
+}
+
+.white {
+     color: white;
+}
+
+#body {
+  width: 100%;
+  height: 100%;
+}
+
+.homebck {
   background: url('./images/background.jpg');
-  height: 100vh;
-  width: 95vw;
+  color: #363636;
+}
+
+.querybck {
+     background-color: #333333;
+     color: white;
 }
 
 hr {
@@ -116,4 +133,11 @@ hr {
 
 .paddingForm {
      padding: 1em;
+}
+
+#footer {
+     font-size: 1.5em;
+     padding: 2em;
+     background-color: #EDEDEE;
+     color: black;
 }

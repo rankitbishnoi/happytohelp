@@ -4,7 +4,7 @@
                <div class="jumbotron" id="queriesRased">
                     <h2> Queries </h2><hr>
                     <div class="row">
-                         <div class="col-xs-6">
+                         <div class="col-xs-6" ng-show='query.user' >
                               <p> Raised By <span>
                                    <div class="btn-group" role="group" aria-label="Raised By">
                                         <button type="button" class="btn btn-default" ng-class = 'query.filter.raisedBy.myself' ng-click='query.filterState("myself")'>Myself</button>

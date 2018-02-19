@@ -14,7 +14,6 @@ router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
 // query
-router.get('/getQuery', auth, ctrlQuery.getQuery);
 router.get('/getQueryList', auth, ctrlQuery.getQueryList);
 router.post('/createQuery', auth, ctrlQuery.createQuery);
 router.post('/changeStatus', auth, ctrlQuery.changeStatus);

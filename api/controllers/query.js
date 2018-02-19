@@ -1,17 +1,13 @@
 var mongoose = require('mongoose');
 var Queries = mongoose.model('Query');
 
+//var twilioSms = require('./twilioSms.js')
+
 var sendJSONresponse = function(res, status, content) {
      res.status(status);
      res.json(content);
 };
 
-module.exports.getQuery = (req, res) => {
-     Queries.find({}, (err, list)=> {
-          res.status(200);
-          res.json(list);
-     });
-}
 
 module.exports.getQueryList = (req, res) => {
      var page = parseInt(req.body.page);
@@ -89,6 +85,9 @@ module.exports.createQuery = (req, res) => {
           };
           res.status(200);
           res.json("Request Successfull.");
+
+          var msg = 'New Query Has been uploaded by '+ query.user.name;
+          //twilioSms.notify('Admin', msg);
      })
 };
 
@@ -128,6 +127,11 @@ module.exports.postAnswer = (req, res) => {
           };
           res.status(200);
           res.json("Request Successfull.");
+
+          /*Queries.findOne({'_id': req.body.queryId}, (err, obj) => {
+               var msg = 'Your query has been Answered. Please check.'
+               twilioSms.notify(obj.user.email, msg);
+          });*/
      })
 };
 

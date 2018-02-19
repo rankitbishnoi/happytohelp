@@ -12,105 +12,113 @@
 
 </head>
 <body ng-controller = "loginCtrl as $ctrl" class="modal-d">
-     <script type="text/ng-template" id="login.html">
-          <div class="modal-header">
-               <h3 class="modal-title" id="modal-title">Login </h3>
-          </div>
-          <div class="modal-body" id="modal-body">
-               <p class="form-group">
-                    <label>Email Id:</label>
-                    <p id='error' class="alert alert-danger" role="alert" ng-if='error'> {{error}} </p>
-                    <input type="text" ng-model="lemail" class="form-control" autocomplete="on">
-               </p>
-               <p class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" ng-model="lpassword" class="form-control" autocomplete="on">
-               </p>
-               <button class="btn btn-primary" type="button" ng-click="loginNow()">Login</button>
-               <a ng-click='register();'>New user? Click here! to Register</a>
-          </div>
-          <div class="modal-footer">
-               <button class="btn btn-primary" type="button" ng-click="ok()">Cancel</button>
-          </div>
-     </script>
-     <script type="text/ng-template" id="register.html">
-          <div class="modal-header" id="modal-header">
-               <h3 class="modal-title" id="modal-title">Register </h3>
-          </div>
-          <div class="modal-body" id="modal-body">
-               <div class="row">
-                    <div class="col-6">
-                         <p id='error' class="alert alert-danger" role="alert" ng-if='rerror'> {{rerror}} </p>
-                         <p class="form-group">
-                              <label>Name</label>
-                              <p id='error' class="alert alert-danger" role="alert" ng-if='nameerror'> {{nameerror}} </p>
-                              <input type="text" ng-model="name" class="form-control" autocomplete="on">
-                         </p>
-                         <p class="form-group">
-                              <label>Username</label>
-                              <p id='error' class="alert alert-danger" role="alert" ng-if='usernameerror'> {{usernameerror}} </p>
-                              <input type="text" ng-model="username" class="form-control" autocomplete="on">
-                         </p>
-                         <p class="form-group">
-                              <label>Email Id</label>
-                              <p id='error' class="alert alert-danger" role="alert" ng-if='emailerror'> {{emailerror}} </p>
-                              <input type="text" ng-model="email" class="form-control" autocomplete="on">
-                         </p>
-                         <p class="form-group">
-                              <label>Batch Code (only for Administration Personnal)</label>
-                              <input type="number" ng-model="batch" class="form-control" autocomplete="on">
-                         </p>
-                    </div>
-                    <div class="col-6">
-                         <p class="form-group">
-                              <label>Mobile Number</label>
-                              <p id='error' class="alert alert-danger" role="alert" ng-if='mobileNumbererror'> {{mobileNumbererror}} </p>
-                              <input type="text" ng-model="mobileNumber" class="form-control" autocomplete="on">
-                         </p>
-                         <p class="form-group">
-                              <label>Password</label>
-                              <p id='error' class="alert alert-danger" role="alert" ng-if='passworderror'> {{passworderror}} </p>
-                              <input type="password" class="form-control" ng-model="password" class="form-control" autocomplete="on">
-                         </p>
-                         <p class="form-group">
-                              <label>Confirm Password</label>
-                              <p  class="alert alert-danger" role="alert" id='error' ng-if='confirmpassworderror'> {{confirmpassworderror}} </p>
-                              <input type="password" class="form-control" ng-model="confirmpassword" class="form-control" autocomplete="on">
-                         </p>
-                    </div>
+     <section ng-class='$ctrl.stateBck' id="body">
+          <script type="text/ng-template" id="login.html">
+               <div class="modal-header">
+                    <h3 class="modal-title" id="modal-title">Login </h3>
                </div>
-               <button class="btn btn-primary" type="button" ng-click="registerNow()">Register</button>
-          </div>
-          <div class="modal-footer">
-               <button class="btn btn-primary" type="button" ng-click="ok()">Cancel</button>
-          </div>
-     </script>
-
-     <nav class="navbar" id="nav">
-          <div class="container-fluid">
-               <div class="navbar-header">
-                    <a class="navbar-brand" ng-click='$ctrl.letsGetStarted()'>
-                         <img alt="Brand" src="./styles/images/logo.png" id="navimage">
-                    </a>
-                    <p class="navbar-brand" id="navbrand" ng-click='$ctrl.letsGetStarted()'><strong>Happy To Help</strong></p>
+               <div class="modal-body" id="modal-body">
+                    <p class="form-group">
+                         <label>Email Id:</label>
+                         <p id='error' class="alert alert-danger" role="alert" ng-if='error'> {{error}} </p>
+                         <input type="text" ng-model="lemail" class="form-control" autocomplete="on">
+                    </p>
+                    <p class="form-group">
+                         <label>Password</label>
+                         <input type="password" class="form-control" ng-model="lpassword" class="form-control" autocomplete="on">
+                    </p>
+                    <button class="btn btn-primary" type="button" ng-click="loginNow()">Login</button>
+                    <a ng-click='register();'>New user? Click here! to Register</a>
                </div>
-               <button type="button" class="btn btn-warning btn-lg hidden-xs navbar-btn navbar-right" id="loginBtn" ng-show='$ctrl.loginbtn' ng-click='$ctrl.login()'>Login</button>
-               <button type="button" class="btn btn-warning btn-lg hidden-xs navbar-btn navbar-right" id="loginBtn" ng-show='$ctrl.logoutbtn' ng-click='$ctrl.logout()'>Logout</button>
-               <p class="navbar-right navbar-brand" id="username" ng-show='$ctrl.logoutbtn' ><strong>{{$ctrl.info.name}}</strong></p>
-          </div>
-     </nav>
+               <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click="ok()">Cancel</button>
+               </div>
+          </script>
+          <script type="text/ng-template" id="register.html">
+               <div class="modal-header" id="modal-header">
+                    <h3 class="modal-title" id="modal-title">Register </h3>
+               </div>
+               <div class="modal-body" id="modal-body">
+                    <div class="row">
+                         <div class="col-6">
+                              <p id='error' class="alert alert-danger" role="alert" ng-if='rerror'> {{rerror}} </p>
+                              <p class="form-group">
+                                   <label>Name</label>
+                                   <p id='error' class="alert alert-danger" role="alert" ng-if='nameerror'> {{nameerror}} </p>
+                                   <input type="text" ng-model="name" class="form-control" autocomplete="on">
+                              </p>
+                              <p class="form-group">
+                                   <label>Username</label>
+                                   <p id='error' class="alert alert-danger" role="alert" ng-if='usernameerror'> {{usernameerror}} </p>
+                                   <input type="text" ng-model="username" class="form-control" autocomplete="on">
+                              </p>
+                              <p class="form-group">
+                                   <label>Email Id</label>
+                                   <p id='error' class="alert alert-danger" role="alert" ng-if='emailerror'> {{emailerror}} </p>
+                                   <input type="text" ng-model="email" class="form-control" autocomplete="on">
+                              </p>
+                              <p class="form-group">
+                                   <label>Batch Code (only for Administration Personnal)</label>
+                                   <input type="number" ng-model="batch" class="form-control" autocomplete="on">
+                              </p>
+                         </div>
+                         <div class="col-6">
+                              <p class="form-group">
+                                   <label>Mobile Number</label>
+                                   <p id='error' class="alert alert-danger" role="alert" ng-if='mobileNumbererror'> {{mobileNumbererror}} </p>
+                                   <input type="text" ng-model="mobileNumber" class="form-control" autocomplete="on">
+                              </p>
+                              <p class="form-group">
+                                   <label>Password</label>
+                                   <p id='error' class="alert alert-danger" role="alert" ng-if='passworderror'> {{passworderror}} </p>
+                                   <input type="password" class="form-control" ng-model="password" class="form-control" autocomplete="on">
+                              </p>
+                              <p class="form-group">
+                                   <label>Confirm Password</label>
+                                   <p  class="alert alert-danger" role="alert" id='error' ng-if='confirmpassworderror'> {{confirmpassworderror}} </p>
+                                   <input type="password" class="form-control" ng-model="confirmpassword" class="form-control" autocomplete="on">
+                              </p>
+                         </div>
+                    </div>
+                    <button class="btn btn-primary" type="button" ng-click="registerNow()">Register</button>
+               </div>
+               <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click="ok()">Cancel</button>
+               </div>
+          </script>
+
+          <nav class="navbar" id="nav">
+               <div class="container-fluid">
+                    <div class="navbar-header">
+                         <a class="navbar-brand" ng-click='$ctrl.letsGetStarted()'>
+                              <img alt="Brand" src="./styles/images/logo.png" id="navimage">
+                         </a>
+                         <p class="navbar-brand" id="navbrand" ng-click='$ctrl.letsGetStarted()' ng-class='$ctrl.brandColor'><strong>Happy To Help</strong></p>
+                    </div>
+                    <button type="button" class="btn btn-warning btn-lg hidden-xs navbar-btn navbar-right" id="loginBtn" ng-show='$ctrl.loginbtn' ng-click='$ctrl.login()'>Login</button>
+                    <button type="button" class="btn btn-warning btn-lg hidden-xs navbar-btn navbar-right" id="loginBtn" ng-show='$ctrl.logoutbtn' ng-click='$ctrl.logout()'>Logout</button>
+                    <p class="navbar-right navbar-brand" id="username" ng-show='$ctrl.logoutbtn' ng-class='$ctrl.brandColor'><strong>{{$ctrl.info.name}}</strong></p>
+               </div>
+          </nav>
 
 
-     <div ui-view id="view"> </div>
+          <div ui-view id="view"> </div>
 
 
-     <!-- Footer -->
-     <footer>
-          <div class="container-fluid" id="footer">
-               <p class="copyright text-muted small">Copyright &copy; Rankit.tech 2018. All Rights Reserved</p>
-          </div>
-     </footer>
+          <!-- Footer -->
+          <footer>
+               <div class="container-fluid" id="footer">
+                    <div>
+                         <ul class="list-inline">
+                              <li ui-sref = 'home'>Home</li>
+                              <li ui-sref = 'query'>Query</li>
+                         </ul>
+                    </div>
+                    <p class="copyright text-muted small">Copyright &copy; Rankit.tech 2018. All Rights Reserved</p>
+               </div>
+          </footer>
 
+     </section>
 
 
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
