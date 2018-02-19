@@ -87,7 +87,7 @@ module.exports.createQuery = (req, res) => {
           res.status(200);
           res.json("Request Successfull.");
 
-          var msg = 'New Query Has been uploaded by '+ query.user.name;
+          //var msg = 'New Query Has been uploaded by '+ query.user.name;
           //twilioSms.notify('Admin', msg);
           //mailer.mail('Admin', msg);
      })

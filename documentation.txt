@@ -62,6 +62,24 @@ To use twilio, change the accountSid and authToken in file ./api/controller/twil
 To use the Nodemailer, change the email account and passkey to you own in file ./api/controller/Nodemailer.js.
 
 
+Request Calls to backend:
+All the calls made should start with /api. (all the query requests should have jwt as authentication header)
+1. /getQueryList (get) : This is used to get the list of queries in the database. There are Number of ways in which you can filter the result you want,
+     All the filter asked are done by using query parameters. 'count' parameter which should be either "true" or "false" will deside if you want to know how many queries
+          there are or you want the list of queries.
+          if count is true 'than' you can filter the result with 'status' bieng "true" for open queries and "false" for closed queries. you can also
+               search the count of queries asked by particular user using raisedBy being "true" and sending email with the emailId of that user.
+          if the count is "false" than you will receive the list of queries which will be sent to you in sets of 10 queries per requests sorted by time they were
+               createdOn in descending order. So page query parameter is also necessary with the numerical value of the set number you want. here you can also filter the queries
+               with query parameter like status and raisedby.
+
+2. /createQuery  (post) : It should have four body parameters   : subject, description, name( of the user), email( of the user).
+3. /changeStatus (post) : It should contain two body parameters : queryId, status(that you want to apply).
+4. /postAnswer   (post) : It should have 4 body parameters      : queryId, msg(answer the user want to post), name(of the user), batch(of the user). *batch if undefined if the person posting is user and batch = 'Admin' if it is admin.
+5. /deleteAnswer (post) : it should have 2 body parameters      : queryId, convoNumber(index of the answer in conversation array).
+6. /deleteQuery  (post) : it should have 2 body parameters      : queryId, batch(only admin can delete the queries).
+
+
 Developer :
 Name: Rankit Bishnoi
 E-mail: rankitgodara1@gmail.com
