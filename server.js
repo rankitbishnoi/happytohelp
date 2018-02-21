@@ -1,6 +1,6 @@
 var app = require('./app');
 var helmet = require('helmet');
-app.use(helmet());
+app.use(helmet()); // for security
 
 //=====================================
 

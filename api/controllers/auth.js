@@ -2,7 +2,7 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
-var sendJSONresponse = function(res, status, content) {
+var sendJSONresponse = function(res, status, content) { // function for sending the response in a set format
   res.status(status);
   res.json(content);
 };

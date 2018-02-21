@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var jwt = require('express-jwt');
-var auth = jwt({
+var auth = jwt({              // middleware to verify the token provided w=by the user when he requests to the server.
   secret: 'MY_SECRET',
   userProperty: 'payload'
 });
@@ -9,11 +9,11 @@ var auth = jwt({
 var ctrlAuth = require('../controllers/auth');
 var ctrlQuery = require('../controllers/query');
 
-// authentication
+// authentication routers
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
-// query
+// query routers
 router.get('/getQueryList', auth, ctrlQuery.getQueryList);
 router.post('/createQuery', auth, ctrlQuery.createQuery);
 router.post('/changeStatus', auth, ctrlQuery.changeStatus);

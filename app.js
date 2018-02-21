@@ -20,11 +20,11 @@ var routesApi = require('./api/routes/index');
 var app = express();
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
+app.use(logger('dev'));                 // to log all the requests to the app
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(cors());
+app.use(cors());            // to enable cross origin platform requests
 
 
 // Initialise Passport before using the route middleware
